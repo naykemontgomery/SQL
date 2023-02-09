@@ -1,0 +1,42 @@
+
+CREATE TABLE 
+boutique
+(id INTEGER PRIMARY KEY, name TEXT, price INTEGER, quantity INTEGER, gender TEXT);
+
+INSERT INTO boutique VALUES
+(1,"skirts",10,40,"male"),
+(2,"jeans",25,10,"female"),
+(3,"scarfs",5,100,"female"),
+(4,"t-shirts",20,30,"male"),
+(5, "baseball caps",12,5,"female"),
+(6, "hast",4,10,"male"),
+(7, "gloves", 8,100,"female"),
+(8, "shorts",15,50,"male"),
+(9, "shoes", 24,100, "female"),
+(10, "shirts", 18, 200, "male"),
+(11, "blazers", 30, 500, "female"),
+(12, "ties", 6,100,"male"),
+(13, "boxers", 3, 1000, "male"),
+(14, "socks", 1, 800, "female"),
+(15, "belts", 8, 20, "male");
+
+--display the database ordered by price. 
+SELECT * FROM boutique
+order by price;
+
+-- whats is the total number of all items in the store?
+SELECT SUM(quantity) FROM boutique;
+
+-- what is the avg price of items for women?
+SELECT AVG(price) "avg item price for women"
+FROM boutique
+where gender="female";
+
+-- what is the avg price of items for men?
+SELECT AVG(price) "avg item price for men"
+FROM boutique
+where gender="male";
+
+-- what is the revenue generated if everything sells out?
+SELECT SUM(quantity*price) "revenue"
+from boutique
