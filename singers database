@@ -1,0 +1,47 @@
+/* Create table about the people and what they do here */
+
+/* EXAMPLE: FAMOUS SINGERS AROUND THEIR WORLD WITH THEIR SONGS*/
+
+/* table of singers*/
+CREATE TABLE singers (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    country TEXT);
+    
+INSERT INTO singers (name, country) VALUES ("Rosalia", "Spain");
+INSERT INTO singers (name, country) VALUES ("Danna Paola", "Mexico");
+INSERT INTO singers (name, country) VALUES ("Katy Perry", "USA");
+INSERT INTO singers (name, country) VALUES ("Shawn Mendes", "USA");
+INSERT INTO singers (name, country) VALUES ("Maluma", "Colombia");
+INSERT INTO singers (name, country) VALUES ("Olivia Rodrigo", "USA");
+INSERT INTO singers (name, country) VALUES ("Adele", "UK");
+INSERT INTO singers (name, country) VALUES ("Jennifer Lopez", "USA");
+INSERT INTO singers (name, country) VALUES ("Miley Cyrus", "USA");
+INSERT INTO singers (name, country) VALUES ("Shakira", "Colombia");
+INSERT INTO singers (name, country) VALUES ("Kenia OS", "Mexico");
+
+/* table of songs*/
+CREATE TABLE songs (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+singer_id INTEGER,
+title TEXT);
+
+INSERT INTO songs (singer_id,title) VALUES (1, "SAOKO");
+INSERT INTO songs (singer_id,title) VALUES (2, "Amor Ordinario");
+INSERT INTO songs (singer_id,title) VALUES (3, "Firework");
+INSERT INTO songs (singer_id,title) VALUES (4, "Stiches");
+INSERT INTO songs (singer_id,title) VALUES (5, "Hawai");
+INSERT INTO songs (singer_id,title) VALUES (6, "Driver's License");
+INSERT INTO songs (singer_id,title) VALUES (7, "Hello");
+INSERT INTO songs (singer_id,title) VALUES (8, "Jenny From The Block");
+INSERT INTO songs (singer_id,title) VALUES (9, "Party In The USA");
+INSERT INTO songs (singer_id,title) VALUES (10, "Hips Don't Lie");
+INSERT INTO songs (singer_id,title) VALUES (11, "Malas Decisiones");
+
+/* display artist name in alphabetically order with country of origin and what songs they sing in*/
+
+SELECT name, country, songs.title AS song_title
+FROM singers
+LEFT JOIN songs
+on singers.id=songs.singer_id
+ORDER BY name
